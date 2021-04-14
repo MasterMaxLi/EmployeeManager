@@ -47,6 +47,7 @@ int main()
 			wm.addEmp();
 			break;
 		case 2:
+			wm.showEmp();
 			break;
 		case 3:
 			break;

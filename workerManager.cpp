@@ -243,4 +243,14 @@ void WorkerManager::showEmp()
 	{
 		cout << "文件不存在或为空" << endl;
 	}
+	else
+	{
+		for (int i = 0; i < m_EmpNum; i++)
+		{
+			//利用多态调用程序接口
+			this->m_EmpArray[i]->showInfo();
+		}
+	}
+	system("pause");
+	system("cls");	//清屏
 }
