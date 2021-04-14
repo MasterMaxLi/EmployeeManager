@@ -1,7 +1,10 @@
 #include<iostream>
 
 #include"workerManager.h"
+#include"worker.h"
 #include"employee.h"
+#include"manager.h"
+#include"boss.h"
 
 using namespace std;
 
