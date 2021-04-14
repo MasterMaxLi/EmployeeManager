@@ -1,10 +1,10 @@
 #include<iostream>
 
 #include"workerManager.h"
-#include"worker.h"
-#include"employee.h"
-#include"manager.h"
-#include"boss.h"
+//#include"worker.h"
+//#include"employee.h"
+//#include"manager.h"
+//#include"boss.h"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ int main()
 {
 
 	//测试代码
-	Worker* worker = NULL;
+	/*Worker* worker = NULL;
 	worker = new Employee(1, "张三", 1);
 	worker->showInfo();
 	delete worker;
@@ -23,7 +23,7 @@ int main()
 
 	worker = new Boss(3, "王五", 2);
 	worker->showInfo();
-	delete worker;
+	delete worker;*/
 	//实例化管理者对象
 	WorkerManager wm;
 
