@@ -44,6 +44,7 @@ int main()
 			wm.exit_System();	//ÍË³ö³ÌÐò
 			break;
 		case 1:
+			wm.addEmp();
 			break;
 		case 2:
 			break;
