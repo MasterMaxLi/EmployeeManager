@@ -67,6 +67,13 @@ WorkerManager::~WorkerManager()
 	//释放开辟在堆区的数据
 	if (this->m_EmpArray != NULL)
 	{
+		for (int i = 0; i < m_EmpNum; i++)
+		{
+			if (this->m_EmpArray[i] != NULL)
+			{
+				delete this->m_EmpArray[i];
+			}
+		}
 		delete[] this->m_EmpArray;
 		this->m_EmpArray = NULL;
 	}
@@ -471,4 +478,35 @@ void WorkerManager::Sort_Emp()
 		this->save();
 		this->show_Emp();
 	}
+}
+
+//清空文件
+void WorkerManager::Clean_File()
+{
+	cout << "确定清空？\n";
+	cout << "1.确认\n";
+	cout << "2.返回\n";
+	
+	int select = 0;
+	cin >> select;
+
+	if (select == 1)
+	{
+		ofstream ofs(FILENAME, ios::trunc);	//删除文件后重建
+		ofs.close();
+
+		for (int i = 0; i < m_EmpNum; i++)
+		{
+			delete this->m_EmpArray[i];
+			this->m_EmpArray[i] = NULL;
+		}
+		//删除堆区数据指针
+		delete[] this->m_EmpArray;
+		this->m_EmpArray = NULL;
+		this->m_EmpNum = 0;
+		this->m_FileIsEmpty = true;
+		cout << "清空成功！\n";
+	}
+	system("pause");
+	system("cls");
 }
