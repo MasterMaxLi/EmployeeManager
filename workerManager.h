@@ -42,7 +42,7 @@ public:
 	void init_Emp();
 
 	//显示员工
-	void showEmp();
+	void show_Emp();
 
 	//析构函数
 	~WorkerManager();

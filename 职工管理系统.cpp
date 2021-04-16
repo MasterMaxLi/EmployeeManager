@@ -24,11 +24,12 @@ int main()
 	worker = new Boss(3, "王五", 2);
 	worker->showInfo();
 	delete worker;*/
-	//实例化管理者对象
-	WorkerManager wm;
 
 	//Employee e(1, "张三", 1);
 	//e.showInfo();
+
+	//实例化管理者对象
+	WorkerManager wm;
 
 	//选项
 	int choice = 0;
@@ -47,7 +48,7 @@ int main()
 			wm.addEmp();
 			break;
 		case 2:
-			wm.showEmp();
+			wm.show_Emp();
 			break;
 		case 3:
 			break;

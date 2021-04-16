@@ -58,8 +58,8 @@ WorkerManager::WorkerManager()
 	}*/
 	 
 	//初始化属性
-	this->m_EmpNum = 0;
-	this->m_EmpArray = NULL;
+	//this->m_EmpNum = 0;
+	//this->m_EmpArray = NULL;
 }
 
 WorkerManager::~WorkerManager()
@@ -236,7 +236,7 @@ void WorkerManager::init_Emp()
 	ifs.close();
 }
 
-void WorkerManager::showEmp()
+void WorkerManager::show_Emp()
 {
 	//判断文件是否为空
 	if (this->m_FileIsEmpty)
