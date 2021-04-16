@@ -422,3 +422,53 @@ void WorkerManager::Find_Emp()
 	system("pause");
 	system("cls");
 }
+
+//°´ÉýÐòÅÅÐò
+void WorkerManager::Sort_Emp()
+{
+	if (this->m_FileIsEmpty)
+	{
+		cout << "ÎÄ¼þ²»´æÕ¦»òÎª¿Õ£¡\n";
+		system("pause");
+		system("cls");
+	}
+	else
+	{
+		cout << "ÇëÊäÈëÅÅÐò·½Ê½£º\n";
+		cout << "1.idÉýÐò\n";
+		cout << "2.id½µÐò\n";
+		int select = 0;
+		cin >> select;
+		for (int i = 0; i < this->m_EmpNum; i++)
+		{
+			int minOrMax = i;
+			for (int j = i + 1; j < this->m_EmpNum; j++)
+			{
+				if (select == 1)	//ÉýÐò
+				{
+					if (this->m_EmpArray[minOrMax]->m_Id > this->m_EmpArray[j]->m_Id)
+					{
+						minOrMax = j;
+					}
+				}
+				else
+				{
+					//½µÐò
+					if (this->m_EmpArray[minOrMax]->m_Id < this->m_EmpArray[j]->m_Id)
+					{
+						minOrMax = j;
+					}
+				}
+			}
+			if (i != minOrMax)
+			{
+				Worker* temp = this->m_EmpArray[i];
+				this->m_EmpArray[i] = this->m_EmpArray[minOrMax];
+				this->m_EmpArray[minOrMax] = temp;
+			}
+		}
+		cout << "ÅÅÐò³É¹¦£¡ÅÅÐòºó½á¹ûÎª£º\n";
+		this->save();
+		this->show_Emp();
+	}
+}

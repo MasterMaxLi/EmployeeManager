@@ -60,6 +60,7 @@ int main()
 			wm.Find_Emp();
 			break;
 		case 6:
+			wm.Sort_Emp();
 			break;
 		case 7:
 			break;
