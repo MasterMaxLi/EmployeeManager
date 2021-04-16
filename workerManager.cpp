@@ -150,7 +150,7 @@ void WorkerManager::addEmp()
 				break;
 			}
 			//将创建的职工指针，保存到数组中
-			newSpace[this->m_EmpNum + i + 1] = worker;
+			newSpace[this->m_EmpNum + i] = worker;
 		}
 
 		//释放原有空间
