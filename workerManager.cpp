@@ -254,3 +254,25 @@ void WorkerManager::show_Emp()
 	system("pause");
 	system("cls");	//清屏
 }
+
+//删除员工
+void WorkerManager::Del_Emp()
+{
+
+}
+
+//判断员工是否存在
+int WorkerManager::IsExit(int id)
+{
+	//默认不存在为-1
+	int index = -1;
+	for (int i = 0; i < m_EmpNum; i++)
+	{
+		if (this->m_EmpArray[i]->m_Id == id)
+		{
+			index = i;
+			break;
+		}
+	}
+	return index;
+}
