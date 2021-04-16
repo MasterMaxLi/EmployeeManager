@@ -360,3 +360,65 @@ void WorkerManager::Mod_Emp()
 	system("pause");
 	system("cls");
 }
+
+//查找职工
+void WorkerManager::Find_Emp()
+{
+	if (this->m_FileIsEmpty)
+	{
+		cout << "文件不存在或为空！\n";
+	}
+	else
+	{
+		cout << "请输入查找方式：\n";
+		cout << "1.按id查找\n";
+		cout << "2.按姓名查找\n";
+		int select = 0;
+		cin >> select;
+		if (select == 1)
+		{
+			cout << "请输入要查找的id：\n";
+			int id = 0;
+			cin >> id;
+			int ret = this->IsExit(id);
+			if (ret != -1)
+			{
+				cout << "该员工信息如下：" << endl;
+				this->m_EmpArray[ret]->showInfo();
+			}
+			else
+			{
+				cout << "输入的id有错误，请检查后重新输入！\n";
+			}
+		}
+		else if (select == 2)
+		{
+			cout << "请输入要查找的姓名：\n";
+			string name = "";
+			cin >> name;
+			bool b = false;
+			for (int i = 0; i < m_EmpNum; i++)
+			{
+				if (this->m_EmpArray[i]->m_Name == name)
+				{
+					cout << "查找到该员工的信息如下：\n";
+					b = true;
+					this->m_EmpArray[i]->showInfo();
+				}
+			}
+			if (!b)
+			{
+				cout << "未查找到名字为" << name << "的员工，请检查信息后重新输入！\n";
+			}
+		}
+		else
+		{
+			cout << "输入的查找方式错误！请重新输入：\n";
+			system("pause");
+			system("cls");
+			this->Find_Emp();
+		}
+	}
+	system("pause");
+	system("cls");
+}
