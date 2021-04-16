@@ -159,12 +159,12 @@ void WorkerManager::addEmp()
 		this->m_EmpArray = newSpace;
 		//更新人数
 		this->m_EmpNum = newSize;
+		//保存到文件
+		this->save();
 		//提示添加成功
 		cout << "成功添加" << addEmpNum << "名员工" << endl;
 		//文件不为空
 		this->m_FileIsEmpty = false;
-		//保存到文件
-		this->save();
 	}
 	else
 	{
@@ -305,4 +305,58 @@ int WorkerManager::IsExit(int id)
 		}
 	}
 	return index;
+}
+
+//修改职工信息
+void WorkerManager::Mod_Emp()
+{
+	if (this->m_FileIsEmpty)
+	{
+		cout << "文件不存在或为空!\n";
+	}
+	else
+	{
+		cout << "请输入要修改的员工id：" << endl;
+		int id = 0;
+		cin >> id;
+		int ret = this->IsExit(id);
+		if (ret != -1)
+		{
+			//找到该员工
+			delete this->m_EmpArray[ret];
+			int newId = 0;
+			string name = "";
+			int dSelect = 0;
+			cout << "查找到id为" << id << "的员工，请输入新的id：\n";
+			cin >> newId;
+			cout << "请输入新的姓名：\n";
+			cin >> name;
+			cout << "请输入新的岗位：\n";
+			cout << "1.普通员工\n" << "2.经理\n" << "3.老板\n";
+			cin >> dSelect;
+
+			Worker* worker = NULL;
+			switch(dSelect)
+			{
+			case 1:
+				worker = new Employee(newId, name, dSelect);
+				break;
+			case 2:
+				worker = new Manager(newId, name, dSelect);
+				break;
+			case 3:
+				worker = new Boss(newId, name, dSelect);
+				break;
+			}
+			this->m_EmpArray[ret] = worker;
+			cout << "更新成功！\n";
+			this->save();
+		}
+		else
+		{
+			cout << "查无此人，请检查id是否输入正确！\n";
+		}
+	}
+	system("pause");
+	system("cls");
 }

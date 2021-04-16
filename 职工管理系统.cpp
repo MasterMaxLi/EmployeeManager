@@ -54,6 +54,7 @@ int main()
 			wm.Del_Emp();
 			break;
 		case 4:
+			wm.Mod_Emp();
 			break;
 		case 5:
 			break;

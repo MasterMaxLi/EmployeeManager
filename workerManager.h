@@ -50,6 +50,9 @@ public:
 	//判断员工是否存在
 	int IsExit(int id);
 
+	//修改职工信息
+	void Mod_Emp();
+
 	//析构函数
 	~WorkerManager();
 };
