@@ -258,7 +258,37 @@ void WorkerManager::show_Emp()
 //删除员工
 void WorkerManager::Del_Emp()
 {
-
+	if (this->m_FileIsEmpty)
+	{
+		cout << "文件不存在或为空!\n";
+	}
+	else
+	{
+		cout << "请输入要删除的员工id：" << endl;
+		int id = 0;
+		cin >> id;
+		int index = this->IsExit(id);
+		if (index != -1)
+		{
+			//职工存在
+			//数据前移
+			for (int i = index; i < this->m_EmpNum - 1; i++)
+			{
+				this->m_EmpArray[i] = this->m_EmpArray[i + 1];
+			}
+			this->m_EmpNum--;
+			this->save();
+			cout << "删除成功！\n";
+			
+		}
+		else
+		{
+			//员工不存在
+			cout << "未找到该员工，请检查id是否输入正确！\n";
+		}
+	}
+	system("pause");
+	system("cls");
 }
 
 //判断员工是否存在
